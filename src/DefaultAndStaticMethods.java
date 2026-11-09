@@ -19,6 +19,7 @@ class Car implements Vehicle {
 
 public class DefaultAndStaticMethods {
     static void main() {
+
         Vehicle.add(10, 5); // static method in interface
 
         Car car = new Car();
