@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 public class PredicateDemo {
     // Take's an argument and returns a boolean value
     // Used in test condition cases
+    // test() is the abstract method of predicate
     static void main() {
         // let's check if a number is even or odd
         Predicate<Integer> p = (Number) -> Number % 2 == 0; // since it is only one line, we can give make it short
