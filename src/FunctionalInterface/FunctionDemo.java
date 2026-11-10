@@ -5,6 +5,9 @@ import java.util.function.Function;
 public class FunctionDemo {
     static void main() {
         // Takes an input of one type and gives output of different type.
+        // Used to transform data
+        // map one data to another
+        // apply() method use used.
 
         Function<String, Integer> f1 = (str) -> str.length(); // returns the length of given string
         System.out.println(f1.apply("Alamgir"));
