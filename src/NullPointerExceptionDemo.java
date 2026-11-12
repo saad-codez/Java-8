@@ -41,7 +41,12 @@ public class NullPointerExceptionDemo {
     static void main() {
 
         UserService userService = new UserService();
-        User user = userService.getUserByID(1);
-        System.out.println("UserName: " + user.getUser() + ", UserID: " + user.getId());
+        User user = userService.getUserByID(5); // returns null
+        // to check null pointer exception
+        if (user != null) {
+            System.out.println("UserName: " + user.getUser() + ", UserID: " + user.getId());
+        } else {
+            System.out.println("User does not exist");
+        }
     }
 }
