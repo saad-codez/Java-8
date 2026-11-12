@@ -20,13 +20,13 @@ class Maths {
 }
 public class StaticMethodReference {
     static void main() {
-      //  Calculator calci = (a, b) -> a * b; //method 1
+      //  Calculator c = (a, b) -> a * b; //method 1
         Calculator c1 = (a, b) -> { // method 2
             return a*b;
         };
         System.out.println(c1.calculate(4,8)); // using lambda
 
-        Calculator c2 = Maths::add; // directly call the class and it's method; // it is static method reference
+        Calculator c2 = Maths::add; // directly call the class and its method; // it is static method reference
         System.out.println(c2.calculate(5, 5));
     }
 }
