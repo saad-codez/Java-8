@@ -50,7 +50,7 @@ class Library {
 public class OCExample {
     static void main() {
        Library library = new Library();
-        Optional<Book> optionalBook = library.getBookDetails(3);
+        Optional<Book> optionalBook = library.getBookDetails(5);
 
         //using isPresent()
 //        if (optionalBook.isPresent()) {
@@ -58,7 +58,11 @@ public class OCExample {
 //            System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId());
 //        }
 
-        // using ifPresent()
-        optionalBook.ifPresent(books ->System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId()));
+        // using ifPresent() ; uses consumer functional interface
+       // optionalBook.ifPresent(books ->System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId()));
+
+        // using orElse(); prints the given default value
+       Book book =  optionalBook.orElse(new Book("NoteBook", 404));
+        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
     }
 }
