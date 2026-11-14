@@ -38,7 +38,7 @@ class Library {
 
         for (Book book : books) {
             if (book.getId() == id) {
-                return Optional.of(book);
+                return Optional.of(book); // creates an Optional object book
             }
         }
         return Optional.empty();
@@ -66,11 +66,19 @@ public class OCExample {
 //        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
 
         //using orElseGet(); uses supplier
-        Book book =  optionalBook.orElseGet(() -> new Book("NoteBook", 404));
-        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
+//        Book book =  optionalBook.orElseGet(() -> new Book("NoteBook", 404));
+//        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
+
+        //using orElseThrow(); uses supplier
+//        Book book = optionalBook.orElseThrow(() -> new RuntimeException("Book not Found"));
+//        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
 
 
+        //using ofNullable(); returns no value if it is null
 
+        Book book = null; // throws npe
+       // Optional.of(book);
+        Optional.ofNullable(book); //returns no value
 
     }
 }
