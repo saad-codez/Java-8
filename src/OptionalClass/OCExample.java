@@ -2,6 +2,7 @@ package OptionalClass;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 class Book {
     private String name;
@@ -32,15 +33,15 @@ class Book {
 
 class Library {
 
-    public Book getBookDetails(int id) {
+    public Optional<Book> getBookDetails(int id) {
         List<Book> books = Arrays.asList(new Book("Atomic Habits", 1), new Book("Never Split The Difference", 2), new Book("Deep Work", 3));
 
         for (Book book : books) {
             if (book.getId() == id) {
-                return book;
+                return Optional.of(book);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
 }
@@ -48,8 +49,16 @@ class Library {
 
 public class OCExample {
     static void main() {
-        Library library = new Library();
-        Book b1 = library.getBookDetails(2);
-        System.out.println("Book Name: " + b1.getName() + ",\nBook ID: " + b1.getId());
+       Library library = new Library();
+        Optional<Book> optionalBook = library.getBookDetails(3);
+
+        //using isPresent()
+//        if (optionalBook.isPresent()) {
+//            Book books = optionalBook.get(); // fetches the book
+//            System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId());
+//        }
+
+        // using ifPresent()
+        optionalBook.ifPresent(books ->System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId()));
     }
 }
