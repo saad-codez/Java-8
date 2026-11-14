@@ -62,7 +62,15 @@ public class OCExample {
        // optionalBook.ifPresent(books ->System.out.println("Name of the Book: " + books.getName()+"\nId of the Book: "+ books.getId()));
 
         // using orElse(); prints the given default value
-       Book book =  optionalBook.orElse(new Book("NoteBook", 404));
+//       Book book =  optionalBook.orElse(new Book("NoteBook", 404));
+//        System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
+
+        //using orElseGet(); uses supplier
+        Book book =  optionalBook.orElseGet(() -> new Book("NoteBook", 404));
         System.out.println("Name of the Book: " + book.getName() + "\nBook Id: " + book.getId());
+
+
+
+
     }
 }
