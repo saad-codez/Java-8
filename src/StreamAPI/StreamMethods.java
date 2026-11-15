@@ -8,7 +8,7 @@ public class StreamMethods {
     //findFirst(): terminal method, returns the first element of the string
     //findAny(): terminal method, finds any element
     //anyMatch(): terminal method, checks if any element present matches the given condition
-    //allMatch()
+    //allMatch(): terminal method, checks if all the elements matches the given condition
     //noneMatch()
     //sorted()
     static void main() {
@@ -30,9 +30,15 @@ public class StreamMethods {
 //        System.out.println(first.get());
 
         //anyMatch
-       boolean valueIsPresent =  names.stream()
-                .anyMatch((name) -> name.startsWith("X"));
-        System.out.println(valueIsPresent);// returns false
+//       boolean valueIsPresent = names.stream()
+//                .anyMatch((name) -> name.startsWith("X"));
+//        System.out.println(valueIsPresent);// returns false
+
+        //allMatch
+        boolean valueIsPresent = names.stream()
+                .allMatch((name) -> name.length()>1); // checks if length is greater than 1
+        System.out.println(valueIsPresent);// returns true
+
 
 
     }
