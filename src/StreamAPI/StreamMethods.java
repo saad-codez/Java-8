@@ -30,9 +30,9 @@ public class StreamMethods {
 //        System.out.println(first.get());
 
         //anyMatch
-        names.stream()
-                .anyMatch((name) -> name.startsWith("X"));// returns false
-
+       boolean valueIsPresent =  names.stream()
+                .anyMatch((name) -> name.startsWith("X"));
+        System.out.println(valueIsPresent);// returns false
 
 
     }
