@@ -2,7 +2,9 @@ package StreamAPI;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 // Create a list, convert it to Stream, process the data and convert it back to list
@@ -33,24 +35,32 @@ class Students {
 public class Assignment2 {
     static void main() {
         List<Students> studentsList = Arrays.asList(
-                new Students(1,"Charizard", "Computer Science"),
-                new Students(2,"Blastoise", "Data Science"),
-                new Students(3, "Venusaur","Artificial Intelligence"),
+                new Students(1, "Charizard", "Computer Science"),
+                new Students(2, "Blastoise", "Data Science"),
+                new Students(3, "Venusaur", "Artificial Intelligence"),
                 new Students(4, "Pidgeot", "Machine Learning"),
-                new Students(5, "Pikachu", "Cyber Security") ,
-        new Students(6, "Feraligator", "Machine Learning"),
+                new Students(5, "Pikachu", "Cyber Security"),
+                new Students(6, "Feraligator", "Machine Learning"),
                 new Students(7, "Mewto", "Artificial Intelligence")
         );
 
         Set<String> name = studentsList.stream()
                 .filter((students) -> students.getDept().equals("Artificial Intelligence"))
-                .map((student)-> student.getName())
+                .map((student) -> student.getName())
                 .collect(Collectors.toSet()); // reverts the stream to list/set
 
+        //converting it to map
+
+        //defining the key and value
+        Function<Students, Integer> key = (student) -> student.getId(); //key
+        Function<Students, String> value = (student) -> student.getName(); //value
 
 
-        System.out.println(name); // prints answer as list/set
+        Map<Integer, String> studentsMap = studentsList.stream()
+                .collect(Collectors.toMap(key, value));
 
+
+        System.out.println(studentsMap); // prints answer as list/set
 
 
     }
