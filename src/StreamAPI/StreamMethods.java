@@ -9,8 +9,8 @@ public class StreamMethods {
     //findAny(): terminal method, finds any element
     //anyMatch(): terminal method, checks if any element present matches the given condition
     //allMatch(): terminal method, checks if all the elements matches the given condition
-    //noneMatch()
-    //sorted()
+    //noneMatch(): terminal method, checks if non matches the condition
+    //sorted(): intermediate method, returns stream in sorted order
     static void main() {
         List<String> names = Arrays.asList("Alamgir", "Muwahhid", "Prince", "Nijat", "Nijaz");
         // findFirst()
@@ -35,10 +35,17 @@ public class StreamMethods {
 //        System.out.println(valueIsPresent);// returns false
 
         //allMatch
-        boolean valueIsPresent = names.stream()
-                .allMatch((name) -> name.length()>1); // checks if length is greater than 1
-        System.out.println(valueIsPresent);// returns true
+//        boolean valueIsPresent = names.stream()
+//                .allMatch((name) -> name.length()>1); // checks if length is greater than 1
+//        System.out.println(valueIsPresent);// returns true
 
+        //noneMatch
+//        boolean valueIsPresent = names.stream()
+//                .noneMatch((name) -> name.length()>1); // checks if length is greater than 1
+//        System.out.println(valueIsPresent);// returns false
+
+        //sorted
+        names.stream().sorted().forEach((name)-> System.out.println(name)); // sorts in alphabetic order
 
 
     }
