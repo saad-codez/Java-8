@@ -1,13 +1,13 @@
 package StreamAPI;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-public class IntermediateOperations {
-    //filter(), map(), sorted()..
-    // return stream
+public class IntermediateAndTerminalOperations {
+    //Intermediate
+    //filter(), map(), sorted()...// does not return anything hence called terminal operator // return stream
+    // Terminal
+    //forEach(), count(), collect()
     // lazy loaded, because they return nothing unless a terminal operation(eagerly loaded) is performed
     // Lazy loading and eager loading
     static void main() {
